@@ -7,3 +7,4 @@ object exercise {
       }
   factorial(4)
 }
+

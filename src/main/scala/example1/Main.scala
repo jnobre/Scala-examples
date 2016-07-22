@@ -8,13 +8,13 @@ import scala.collection.mutable.ListBuffer
 object Main {
   def main(args: Array[String]): Unit = {
     println("Triangulo de Pascal")
-    for (row <- 0 to 10) {
-      for (col <- 0 to row)
-        print(pascal(col, row) + " ")
-      println()
+    for ( row <- 0 to 10 ) {
+      for ( col <- 0 to row )
+        print( pascal( col , row ) + " " )
+      println( )
     }
-
   }
+
 
   /**
     * Triangulo de pascal
@@ -37,11 +37,10 @@ object Main {
           if (h == '(') numOpens + 1
           else if (h == ')') numOpens - 1
           else numOpens
-        if (n >= 0) f(chars.tail, n)
+        if ( n >= 0 ) f( chars.tail , n )
         else false
       }
     }
-
     f(chars, 0)
   }
 
