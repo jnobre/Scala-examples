@@ -9,17 +9,12 @@ object exercise2 {
     else f(a) * product( f )( a + 1 , b )
   product(x => x * x)(3, 7)
 
-  val x = new Rational(1, 2)
-  x.numr
-  x.denom
-  val y = new Rational(2, 3)
-  x.add(y)
 
   val x = new Rational(1, 3)
   val y = new Rational(5, 7)
   val z = new Rational(3, 2)
   val strange = new Rational(1, 0)
-  strange.add( strange )
+  strange + strange
 
 }
 
@@ -31,21 +26,20 @@ class Rational(x: Int, y: Int) {
   def numr = x / g
   def denom = y / g
 
-  def add(that: Rational)=
+  def + (that: Rational)=
     new Rational(
-    numer * that.denom + that.numr * denom,
+      numr * that.denom + that.numr * denom,
     denom * that.denom)
 
   def neg: Rational = new Rational( -numr , denom )
 
-  def sub( that: Rational ) = add( that.neg )
+  def sub( that: Rational ) = this + that.neg
 
   def less(that: Rational) = numr * that.denom < that.numr * denom
 
   def max(that: Rational) = if( this.less( that ) ) that else this
 
-  override def toString = numer + "/" + denom
-
+  override def toString = numr + "/" + denom
 
 }
 
